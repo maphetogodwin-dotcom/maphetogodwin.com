@@ -1,0 +1,371 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aurora Webcraft — professional website design & development for businesses, startups and creators.">
+  <title>Aurora Webcraft — Web Development & Design</title>
+  <link rel="icon" href="data:;base64,iVBORw0KGgo="> <!-- intentionally empty favicon -->
+  <style>
+    :root{
+      --bg:#0f1724; /* deep navy */
+      --card:#0b1220;
+      --glass: rgba(255,255,255,0.04);
+      --accent1:#7c3aed; /* violet */
+      --accent2:#06b6d4; /* teal */
+      --muted:#94a3b8;
+      --radius:14px;
+      --max-width:1100px;
+      --container-padding:24px;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,var(--bg) 0%, #071226 100%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px 16px;
+      display:flex;
+      justify-content:center;
+      font-size:16px;
+    }
+    .site{
+      width:100%;
+      max-width:var(--max-width);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:20px;
+      padding:28px;
+      box-shadow:0 10px 30px rgba(2,6,23,0.6);
+      backdrop-filter:blur(6px);
+    }
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      text-decoration:none;
+      color:inherit;
+    }
+    .logo{
+      width:48px;height:48px;border-radius:10px;
+      display:grid;place-items:center;
+      background:linear-gradient(135deg,var(--accent1),var(--accent2));
+      box-shadow:0 6px 18px rgba(124,58,237,0.18);
+      flex:0 0 48px;
+    }
+    .logo svg{width:30px;height:30px}
+    .brand h1{font-size:1.05rem;margin:0}
+    .brand p{margin:0;font-size:.8rem;color:var(--muted)}nav{display:flex;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.06);cursor:pointer;color:inherit;text-decoration:none}
+.btn.primary{background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#021025;border:none}
+
+/* Hero */
+.hero{
+  display:grid;grid-template-columns:1fr 420px;gap:28px;margin-top:22px;align-items:center
+}
+.hero .eyebrow{color:var(--accent2);font-weight:600;font-size:.9rem}
+.hero h2{margin:10px 0;font-size:2rem;line-height:1.02}
+.hero p{color:var(--muted);margin:0 0 18px}
+.cta-group{display:flex;gap:12px}
+.stats{display:flex;gap:18px;margin-top:20px}
+.stat{background:var(--glass);padding:12px;border-radius:10px;min-width:110px;text-align:center}
+.stat b{display:block;font-size:1.2rem}
+
+/* Card preview area (no images) */
+.preview-card{background:linear-gradient(180deg, rgba(255,255,255,0.014), rgba(255,255,255,0.01));padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03)}
+.browser-top{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(90deg,#ffb86b,#ff7ab6)}
+.fake-viewport{height:220px;border-radius:10px;background:linear-gradient(180deg,#071a2a,#0a2540);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.95rem}
+
+/* Sections */
+section{margin-top:34px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+.service h3{margin:0 0 6px}
+.service p{margin:0;color:var(--muted);font-size:.95rem}
+
+/* portfolio list */
+.portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.proj{padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));min-height:120px;display:flex;flex-direction:column;justify-content:space-between}
+.proj .label{font-weight:600}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:.78rem;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.03)}
+
+/* testimonials */
+.testimonials{display:flex;gap:12px;overflow:auto;padding-bottom:6px}
+.testimonial{min-width:260px;padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
+
+/* pricing */
+.pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.price{padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
+.price h4{margin:0 0 8px}
+.price ul{margin:8px 0 0;padding-left:18px;color:var(--muted)}
+
+/* contact */
+.contact-wrap{display:grid;grid-template-columns:1fr 360px;gap:18px}
+form{display:flex;flex-direction:column;gap:10px}
+label{font-size:.88rem}
+input,textarea,select{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:8px;color:inherit}
+textarea{min-height:120px;resize:vertical}
+
+footer{margin-top:28px;padding-top:18px;border-top:1px dashed rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center}
+
+/* Responsive */
+@media (max-width:1000px){
+  .hero{grid-template-columns:1fr;}
+  .portfolio,.grid-3,.pricing{grid-template-columns:repeat(2,1fr)}
+  .contact-wrap{grid-template-columns:1fr}
+}
+@media (max-width:620px){
+  .portfolio,.grid-3,.pricing{grid-template-columns:1fr}
+  header{flex-direction:column;align-items:flex-start}
+  nav{width:100%;justify-content:space-between}
+}
+
+  </style>
+</head>
+<body>
+  <div class="site" role="main">
+    <header>
+      <a class="brand" href="#home" aria-label="Aurora Webcraft home">
+        <div class="logo" aria-hidden="true">
+          <!-- simple abstract mark -->
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 12c0-4 4-8 8-8s8 4 8 8-4 8-8 8S4 16 4 12z" fill="white" opacity="0.14"/>
+            <path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4-4-1.8-4-4z" fill="white" opacity="0.18"/>
+          </svg>
+        </div>
+        <div>
+          <h1>Aurora Webcraft</h1>
+          <p>Modern sites · Performance-first</p>
+        </div>
+      </a><nav aria-label="Main navigation">
+    <a class="btn" href="#services">Services</a>
+    <a class="btn" href="#portfolio">Portfolio</a>
+    <a class="btn" href="#contact">Contact</a>
+    <a class="btn primary" href="mailto:hello@aurorawebcraft.example">Get a quote</a>
+  </nav>
+</header>
+
+<section class="hero" id="home" aria-labelledby="hero-heading">
+  <div>
+    <div class="eyebrow">Full‑stack website development</div>
+    <h2 id="hero-heading">Fast, accessible, and beautiful websites for businesses that mean business.</h2>
+    <p>We design clear user experiences and ship production-ready code — optimized for speed, accessibility, and growth. Specializing in responsive designs, CMS integrations and e‑commerce.</p>
+
+    <div class="cta-group">
+      <a class="btn primary" href="#contact">Start a project</a>
+      <a class="btn" href="#services">Our services</a>
+    </div>
+
+    <div class="stats" aria-hidden="true">
+      <div class="stat">
+        <span class="muted">Projects</span>
+        <b>120+</b>
+      </div>
+      <div class="stat">
+        <span class="muted">Avg. load</span>
+        <b>&lt;1.2s</b>
+      </div>
+      <div class="stat">
+        <span class="muted">Clients</span>
+        <b>45+</b>
+      </div>
+    </div>
+  </div>
+
+  <aside class="preview-card" aria-label="Site preview — no external images">
+    <div class="browser-top" aria-hidden="true">
+      <div class="dot"></div>
+      <div style="width:12px;height:10px;border-radius:3px;background:rgba(255,255,255,0.03)"></div>
+    </div>
+    <div class="fake-viewport">
+      <div>
+        <div style="font-weight:600;margin-bottom:6px">Aurora Webcraft</div>
+        <div style="font-size:.9rem;color:var(--muted);max-width:260px">Clean, responsive layouts · CMS-ready templates · Performance optimised.</div>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<section id="services" aria-labelledby="services-heading">
+  <h3 id="services-heading">Services</h3>
+  <div class="grid-3" style="margin-top:12px">
+    <article class="card service" aria-labelledby="s1">
+      <h3 id="s1">Custom Websites</h3>
+      <p>Pixel‑perfect designs built with modern front-end frameworks or plain HTML/CSS/JS — tailored to your brand and goals.</p>
+    </article>
+    <article class="card service" aria-labelledby="s2">
+      <h3 id="s2">E‑commerce</h3>
+      <p>Shopify, WooCommerce or headless commerce integrations with fast checkout flows and easy admin management.</p>
+    </article>
+    <article class="card service" aria-labelledby="s3">
+      <h3 id="s3">Performance & SEO</h3>
+      <p>Code auditing, Core Web Vitals optimization, and semantic HTML to help you rank and convert.</p>
+    </article>
+  </div>
+</section>
+
+<section id="portfolio" aria-labelledby="portfolio-heading">
+  <h3 id="portfolio-heading" style="margin-top:26px">Selected projects</h3>
+  <div class="portfolio" style="margin-top:12px">
+    <article class="proj" aria-labelledby="p1">
+      <div>
+        <div class="label" id="p1">B2B SaaS Landing</div>
+        <p style="color:var(--muted);margin:6px 0 0">Conversion‑focused landing with animated CTA, built with static site generator.</p>
+      </div>
+      <div class="tags" aria-hidden="true"><span class="tag">Landing</span><span class="tag">SaaS</span></div>
+    </article>
+
+    <article class="proj" aria-labelledby="p2">
+      <div>
+        <div class="label" id="p2">Local Retail Store</div>
+        <p style="color:var(--muted);margin:6px 0 0">Full WooCommerce integration and POS sync — mobile-first checkout experience.</p>
+      </div>
+      <div class="tags" aria-hidden="true"><span class="tag">E‑commerce</span><span class="tag">WooCommerce</span></div>
+    </article>
+
+    <article class="proj" aria-labelledby="p3">
+      <div>
+        <div class="label" id="p3">Creator Portfolio</div>
+        <p style="color:var(--muted);margin:6px 0 0">CMS-backed portfolio with easy editing and image-light layouts for fast loads.</p>
+      </div>
+      <div class="tags" aria-hidden="true"><span class="tag">CMS</span><span class="tag">Static</span></div>
+    </article>
+  </div>
+</section>
+
+<section aria-labelledby="why-heading">
+  <h3 id="why-heading" style="margin-top:26px">Why choose us?</h3>
+  <div class="grid-3" style="margin-top:12px">
+    <div class="card">
+      <h4>Transparent pricing</h4>
+      <p style="color:var(--muted);margin:6px 0 0">Clear estimates and milestone payment schedules; no surprise fees.</p>
+    </div>
+    <div class="card">
+      <h4>Accessible & inclusive</h4>
+      <p style="color:var(--muted);margin:6px 0 0">WCAG-aware patterns, keyboard navigation and semantic markup by default.</p>
+    </div>
+    <div class="card">
+      <h4>Ongoing support</h4>
+      <p style="color:var(--muted);margin:6px 0 0">Hosting, maintenance and release pipelines to keep your site healthy.</p>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials" aria-labelledby="test-heading">
+  <h3 id="test-heading" style="margin-top:26px">Client feedback</h3>
+  <div class="testimonials" style="margin-top:12px">
+    <blockquote class="testimonial">
+      <p style="margin:0 0 8px">"Aurora Webcraft launched our new site in under 6 weeks. Performance and conversions improved immediately."</p>
+      <cite style="font-size:.88rem;color:var(--muted)">— Product Manager, FinTech</cite>
+    </blockquote>
+
+    <blockquote class="testimonial">
+      <p style="margin:0 0 8px">"They translated our brand into a fast, maintainable site and handled our migrations with care."</p>
+      <cite style="font-size:.88rem;color:var(--muted)">— Founder, Retailer</cite>
+    </blockquote>
+  </div>
+</section>
+
+<section id="pricing" aria-labelledby="pricing-heading">
+  <h3 id="pricing-heading" style="margin-top:26px">Pricing (example)</h3>
+  <div class="pricing" style="margin-top:12px">
+    <div class="price">
+      <h4>Starter</h4>
+      <div style="font-weight:700;margin:6px 0">From $1,500</div>
+      <ul>
+        <li>1–3 page site</li>
+        <li>Basic SEO</li>
+        <li>1 month support</li>
+      </ul>
+    </div>
+    <div class="price">
+      <h4>Business</h4>
+      <div style="font-weight:700;margin:6px 0">From $4,200</div>
+      <ul>
+        <li>Custom design</li>
+        <li>CMS & training</li>
+        <li>3 months support</li>
+      </ul>
+    </div>
+    <div class="price">
+      <h4>Enterprise</h4>
+      <div style="font-weight:700;margin:6px 0">Custom</div>
+      <ul>
+        <li>Integrations</li>
+        <li>Performance SLAs</li>
+        <li>Managed hosting</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact" aria-labelledby="contact-heading">
+  <h3 id="contact-heading" style="margin-top:26px">Contact</h3>
+  <div class="contact-wrap" style="margin-top:12px">
+    <form action="#" method="post" aria-label="Contact form">
+      <label for="name">Full name</label>
+      <input id="name" name="name" type="text" placeholder="Your name" required>
+
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="you@company.com" required>
+
+      <label for="budget">Budget (optional)</label>
+      <select id="budget" name="budget">
+        <option value="">— select —</option>
+        <option value="under-2k">Under $2,000</option>
+        <option value="2k-5k">$2,000–$5,000</option>
+        <option value="5k-plus">$5,000+</option>
+      </select>
+
+      <label for="message">Project details</label>
+      <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+
+      <button type="submit" class="btn primary">Send message</button>
+    </form>
+
+    <aside style="padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));">
+      <h4 style="margin-top:0">Get in touch</h4>
+      <p style="margin:6px 0;color:var(--muted)">Email: <a href="mailto:hello@aurorawebcraft.example">hello@aurorawebcraft.example</a></p>
+      <p style="margin:6px 0;color:var(--muted)">Phone: <span aria-hidden="true">+1 (555) 555‑0123</span></p>
+      <p style="margin:6px 0;color:var(--muted)">Typical project timeline: 4–8 weeks</p>
+    </aside>
+  </div>
+</section>
+
+<footer>
+  <small style="color:var(--muted)">© <span id="year"></span> Aurora Webcraft — Built with semantic HTML.</small>
+  <nav aria-label="Footer links"><a class="btn" href="#privacy">Privacy</a></nav>
+</footer>
+
+  </div>  <script>
+    // small script to keep the page interactive without external libs
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // simple smooth scroll for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          const el = document.querySelector(href);
+          if(el){
+            e.preventDefault();
+            el.scrollIntoView({behavior:'smooth',block:'start'});
+            history.replaceState(null,'',href);
+          }
+        }
+      })
+    })
+  </script></body>
+</html>
